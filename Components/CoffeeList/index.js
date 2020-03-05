@@ -6,10 +6,12 @@ import { List, Content, Spinner } from "native-base";
 
 // Stores
 import coffeeStore from "../../Stores/coffeeStore";
+import authStore from "../../Stores/authStore";
 
 // Component
 import CoffeeItem from "./CoffeeItem";
 import CartButton from "../Buttons/CartButton";
+import LogoutButton from "../Buttons/LogoutButton";
 
 const CoffeeList = () => {
   if (coffeeStore.loading) return <Spinner />;
@@ -19,6 +21,7 @@ const CoffeeList = () => {
   return (
     <Content>
       <List>{coffeeshopList}</List>
+      {authStore.user && <LogoutButton />}
     </Content>
   );
 };
